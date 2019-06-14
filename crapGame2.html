@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>play ruleCrap game</title>
+        <button onclick="myFunction()"><h3>play the game</h3></button>
+    </head>
+    <body>
+        <script type="text/javascript">
+        function myFunction(){
+            var face1,face2,res,point=0,count=1,wwin=-1;
+            face1=Math.floor(1+Math.random()*6);
+            face2=Math.floor(1+Math.random()*6);
+            sum=face1+face2;
+            if(sum==7||sum==11)
+            {
+                window.alert("you won the game in first attempt");
+                win=1;
+            }
+            else if(sum==2||sum==3||sum==12)
+            {
+                window.alert("you lost the game in first attempt");
+                win=0;
+            }
+            else
+            {
+                point=sum;
+
+                for(;;)
+                {
+                    count++;
+                    face1=Math.floor(1+Math.random()*6);
+                    face2=Math.floor(1+Math.random()*6);
+                    sum=face1+face2;
+                    if (sum==point) {
+                        window.alert("your point was "+point+" and \n you won the game in "+count+"th attempt ");
+                        win=1;
+                        break;
+                    } else if(sum==7||sum==11){
+                        window.alert("your point was "+point+" and \nyou lost the game in"+count+"th attempt");
+                        win=0;break;
+                    }
+                    else{
+                        continue;
+                    }
+
+                }
+            } 
+            if(win==1)
+            {
+                document.writeln("you won the game with\n"+"<br>");
+                document.writeln("<table bgcolor='aqua' border='2' width='20%' align='left'>"+"<tr>");
+                document.writeln("<th>point</th><th>attempt</th></tr>");
+                document.writeln("<tr><td align='center'>"+point+"</td><td align='center'>"+count+"</td></tr></table");
+            } 
+            if(win==0)
+            {
+                document.writeln("you lost the game with\n"+"<br>");
+                document.writeln("<table bgcolor='aqua' border='2' width='20%' align='left'>"+"<tr>");
+                document.writeln("<th>point</th><th>attempt</th></tr>");
+                document.writeln("<tr><td align='center'>"+point+"</td><td align='center'>"+count+"</td></tr></table");
+            } 
+        
+        }
+        </script>
+    </body>
+</html>
